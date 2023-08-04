@@ -1,6 +1,6 @@
 <div style="text-align: justify">
 
-# Memory Access and bandwidth test using Vitis on AWS F1 Hardware Acceleration FPGA instance on Alveo Board
+# Memory access and bandwidth test using Vitis on AWS F1 hardware acceleration FPGA instance on Alveo Board
 
 ## Design Overview
 
@@ -44,12 +44,13 @@ Below is the block diagram of the test subject structure.
   All of above modules are using the wrapper modules axi_read_maser and axi_write_master, which was provided by Xilix Vitis, will communicate with DDR of the FPGA card. Following Figure demostrate the block diagram of mem_read_write and the architecture for above.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_4.png" width="1157" height="821">
+<img align="center" src="./images/figure_4.png" width="574" height="410">
 </div>
   The mxx_axi wrapper module:
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_5.png" width="1048" height="555">
+<img align="center" src="./images/figure_5.png" width="547" height="410
+">
 </div>
 
 ## Design Flow
@@ -122,7 +123,7 @@ comment the `& ~LP_ADDR_MASK` of axi_read_master and axi_write_master since we a
 - Choose a preferred Workspace directory for yourself and click 'Launch'.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_6.png" width="1157" height="821">
+<img align="center" src="./images/figure_6.png" width="332" height="191">
 </div>
 
 - Go to File->New->Application Project.
@@ -130,19 +131,19 @@ comment the `& ~LP_ADDR_MASK` of axi_read_master and axi_write_master since we a
 - Assuming you have cloned the AWS-fpga repository from the web, select the platform for the particular board and  click next.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_7.png" width="1157" height="821">
+<img align="center" src="./images/figure_7.png" width="960" height="600
+">
 </div>
 
 - Give a project name, for an example, for <project name> RTL kernel, name it as '<project name>' and click next.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_8.png" width="1157" height="821">
+<img align="center" src="./images/figure_8.png" width="574" height="410">
 </div>
-
 - select as Empty Application and click finish.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_9.png" width="1157" height="821">
+<img align="center" src="./images/figure_9.png" width="574" height="410">
 </div>
 
 - Go to **Xilinx->Launch RTL Kernel Wizard.**
@@ -160,25 +161,25 @@ note that the location of the files and folders in your AWS development instance
 skip the introduction page  for later by  clicking next. In General Settings define the Kernel Name, Kernal Vender, Kernel Type(RTL), Has reset (1) and click next
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_10.png" width="1157" height="821">
+<img align="center" src="./images/figure_10.png" width="574" height="410">
 </div>
 
 - set up the scalar arguments you want to send to the kernel and click next once finished.
 
 <div style="text-align: center">  
-<img align="center" src="./images/figure_11.png" width="1157" height="821">
+<img align="center" src="./images/figure_11.png" width="574" height="410">
 </div>
 
 in Global Memory page set up each AXI master interfaces you want for the connection with the Global Memory. and click next.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_12.png" width="1157" height="821">
+<img align="center" src="./images/figure_12.png" width="574" height="410">
 </div>
 
 skip the Streaming interfaces since we are using axi 4 Lite, click next. and you would be provided a summary of what you have been created and the parameters you want to manage in your host program (i.e. ID, Name of scalar argument variable)
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_13.png" width="1157" height="821">
+<img align="center" src="./images/figure_13.png" width="574" height="410">
 </div>
 
 then click OK.
@@ -188,7 +189,7 @@ then click OK.
 - Click Generate RTL Kernel if the Design source file hierarchy is settled. and click OK on next window appear as below. 
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_14.png" width="1157" height="821">
+<img align="center" src="./images/figure_14.png" width="574" height="410">
 </div>
 
 - Lead back to Vitis following the flow.
@@ -205,19 +206,19 @@ debug_mode=gui
 - click on add a binary container
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_15.png" width="1157" height="821">
+<img align="center" src="./images/figure_15.png" width="960" height="600">
 </div>
 
 - Right click on the binary_container_1 and on the coming menu, click on Add Hardware Function…
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_16.png" width="1157" height="821">
+<img align="center" src="./images/figure_16.png" width="960" height="600">
 </div>
 
 - And select a hardware function (<project name>_accelerator)
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_17.png" width="1157" height="821">
+<img align="center" src="./images/figure_17.png" width="960" height="600">
 </div>
 
 - Right click again on the hardware function you added earlier on the same path in Assistant tab list, click on Settings from the following
@@ -231,7 +232,7 @@ you are currently testing).
 - In Explorer tab list, right click on <project name>_system/<project name>/src and click on Import Sources…
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_18.png" width="1157" height="821">
+<img align="center" src="./images/figure_18.png" width="960" height="600">
 </div>
 
 - Brows and locate both the .cpp and .h files and add them.
@@ -239,38 +240,38 @@ you are currently testing).
 - Select Hardware Emulation from Active build configuration.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_19.png" width="1157" height="821">
+<img align="center" src="./images/figure_19.png" width="960" height="600">
 </div>
 
 - go to Project -> Clean.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_20.png" width="1157" height="821">
+<img align="center" src="./images/figure_20.png" width="960" height="600">
 </div>
 
 - follow the instructions.
 - Check every folder and press clean.
 
 <div style="text-align: center">  
-<img align="center" src="./images/figure_21.png" width="1157" height="821">
+<img align="center" src="./images/figure_21.png" width="960" height="600">
 </div>
 
 - Click on Run Configurations… as shown below once build is done.
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_22.png" width="1157" height="821">
+<img align="center" src="./images/figure_22.png" width="960" height="600">
 </div>
 
 - Specify the kernel name and requesting data with the window shown below.
 
 <div style="text-align: center"> 
-<img align="center" src="./images/figure_23.png" width="1157" height="821">
+<img align="center" src="./images/figure_23.png" width="960" height="600">
 </div>
 
 - Enter the argument as binary_container_1.xclbin
 
 <div style="text-align: center">
-<img align="center" src="./images/figure_24.png" width="1157" height="821">
+<img align="center" src="./images/figure_24.png" width="960" height="600">
 </div>
 
 - Then run and pause the Vivado runtime putting the information window to run on background.
