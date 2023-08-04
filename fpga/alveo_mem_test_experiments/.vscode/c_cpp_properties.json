@@ -1,0 +1,24 @@
+{
+    "configurations": [
+      {
+        "name": "Linux",
+        "includePath": [
+          "${workspaceFolder}/include",
+          "${workspaceFolder}/../daax_accelerator/include/",
+          "${workspaceFolder}/src/",
+          "${workspaceFolder}/../daax_accelerator/src/",
+          "${workspaceFolder}/../daax_hw_interface/include",
+          "${workspaceFolder}/../daax_hw_interface/src",
+          "${workspaceFolder}/../daax_hw_interface/test",
+          "${workspaceFolder}/test"
+        ],
+        "defines": ["DEBUG","INFO","SOLR_HOME","INDEX_PATH"],
+        "compilerPath": "/usr/bin/g++",
+        "cStandard": "gnu11",
+        "cppStandard": "gnu++17",
+        "intelliSenseMode": "gcc-x64"
+      }
+    ],
+    "version": 4
+  }
+  
