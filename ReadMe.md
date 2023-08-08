@@ -1,10 +1,10 @@
 <div style="text-align: justify">
 
-# Memory access and bandwidth test using Vitis on AWS F1 hardware acceleration FPGA instance on Alveo Board
+# Memory access and bandwidth test for Xilinx Alveo Cards (AWS F1)
 
 ## Design Overview
 
-Here we present a memory tester (mem-tester) application and kernel for Xilinx Alveo cards. This design will read data from the main memory of the host machine through PCIe bus to DDR of the FPGA and then to FPGA block ram and vice versa. In this repo we provide the SystemVerilog RTL kernel and host side application required for the memory tester. Our kernel will access the on-board DDR memory via an AXI-4 interface and perform the read write operations as instructed by the host side application. By this method we ensure that the on-board DDR memory is accessible and fully functioning. We hope to add memory perf tests in a future release. We provide three versions of the mem-tester design.
+Here we present a memory tester (mem-tester) application and kernel for Xilinx Alveo cards (AWS F1). This design will read data from the main memory of the host machine through PCIe bus to DDR of the FPGA and then to FPGA block ram and vice versa. In this repo we provide the SystemVerilog RTL kernel and host side application required for the memory tester. Our kernel will access the on-board DDR memory via an AXI-4 interface and perform the read write operations as instructed by the host side application. By this method we ensure that the on-board DDR memory is accessible and fully functioning. We hope to add memory perf tests in a future release. We provide three versions of the mem-tester design.
 * mem_read
 * mem_write
 * mem_read_write
