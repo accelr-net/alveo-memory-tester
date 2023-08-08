@@ -4,25 +4,18 @@
 
 ## Design Overview
 
- 
+Here we present a memory tester (mem-tester) application and kernel for Xilinx Alveo cards. This design will read data from the main memory of the host machine through PCIe bus to DDR of the FPGA and then to FPGA block ram and vice versa. In this repo we provide the SystemVerilog RTL kernel and host side application required for the memory tester. Our kernel will access the on-board DDR memory via an AXI-4 interface and perform the read write operations as instructed by the host side application. By this method we ensure that the on-board DDR memory is accessible and fully functioning. We hope to add memory perf tests in a future release. We provide three versions of the mem-tester design.
+* mem_read
+* mem_write
+* mem_read_write
 
-
-  In this task we have designed a simplistic design to read memory from the SDRAM of the Host Machine through PCIe bus to DDR of FPGA and then to FPGA block memory and write memory the same way back. Vitis IDE is used to generate the link using AXI4 Lite protocol to get all the control signal communication done. From the Host side of the system, we are using OpenCL (OCL / Open Computing Language) to access the XRT library and communicate through the PCIe bus and the DMA (Direct Memory Access) modules which would be built by Vitis at the FPGA side when the kernels are built. There are three main module designs in this test as below. 
-
-    mem_read
-
-    mem_write
-
-    mem_read_write
-
-Below is the block diagram of the test subject structure.
+Below is a simplified block diagram of the mem-tester architecture.
 
 <div style="text-align: center">
 <img src="./images/figure_1.png" width="571" height="297" align="center">
 </div>
 
 ## mem_read module:
-
 
   The function of mem_read is to read data from DDR of the FPGA Card to FPGA chip's block memory as fixed size chunks (which later will be upgraded as a user configuration inputs in future updates) using AXI4 by following the addr_increment to advance the address reference to start the next memory chunk. And mem_max_addr scalar variable to end the reading function from DDR, both of addr_increment and mem_max_addr are provided by the Host Program. Below is the block diagram of the mem_read module. 
 
