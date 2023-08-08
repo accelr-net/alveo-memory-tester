@@ -1,6 +1,6 @@
 <div style="text-align: justify">
 
-# Memory access and bandwidth test for Xilinx Alveo Cards (AWS F1)
+# Memory access and bandwidth test for Xilinx Alveo cards (AWS F1)
 
 ## Design Overview
 
